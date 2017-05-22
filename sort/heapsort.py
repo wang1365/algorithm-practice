@@ -62,6 +62,7 @@ class HeapSort(BaseSorter):
 if __name__ == '__main__':
     data = [i for i in range(100)]
     import random
+    from basesorter import sort
 
     random.shuffle(data)
-    HeapSort().sort(data)
+    sort(data, HeapSort)
