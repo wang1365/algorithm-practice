@@ -35,7 +35,7 @@ class HeapSort(BaseSorter):
         tmp = self._data[index]
         parent, biggerchild = index, 2 * index + 1
         while biggerchild <= end:
-            if biggerchild + 1 < end and self._data[biggerchild] < self._data[biggerchild + 1]:
+            if biggerchild + 1 <= end and self._data[biggerchild] < self._data[biggerchild + 1]:
                 biggerchild += 1
             if tmp >= self._data[biggerchild]:
                 break
