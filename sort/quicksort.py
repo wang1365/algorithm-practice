@@ -11,15 +11,12 @@ def quick_sort2(data, start, end):
     print 'Use quick sort without recursion'
     sub_sequences = [(start, end)]
     while sub_sequences:
-        i, j = sub_sequences[-1]
+        i, j = sub_sequences.pop()
         mid = partition(data, i, j)
-        if mid == i or mid == j:
-            sub_sequences.pop()
-        else:
-            if mid > i:
-                sub_sequences.append((i, mid))
-            if j > mid + 1:
-                sub_sequences.append((mid + 1, j))
+        if mid > i:
+            sub_sequences.append((i, mid))
+        if j > mid + 1:
+            sub_sequences.append((mid + 1, j))
 
 
 def partition(data, start, end):
@@ -42,5 +39,6 @@ if __name__ == '__main__':
     data = [i for i in range(100)]
     random.shuffle(data)
     print 'src', data
+    # data = [1, 8, 5, 2, 3]
     quick_sort2(data, 0, len(data) - 1)
     print 'after sort:', data
