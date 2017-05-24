@@ -11,7 +11,7 @@ def quick_sort2(data, start, end):
     print 'Use quick sort without recursion'
     sub_sequences = [(start, end)]
     while sub_sequences:
-        i, j = sub_sequences[len(sub_sequences) - 1]
+        i, j = sub_sequences[-1]
         mid = partition(data, i, j)
         if mid == i or mid == j:
             sub_sequences.pop()
