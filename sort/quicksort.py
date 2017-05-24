@@ -1,5 +1,5 @@
 def quick_sort(data, start, end):
-    print 'Use quick sort with recursion'
+    # print 'Use quick sort with recursion'
     if start >= end:
         return
     mid = partition(data, start, end)
@@ -16,8 +16,10 @@ def quick_sort2(data, start, end):
         if mid == i or mid == j:
             sub_sequences.pop()
         else:
-            sub_sequences.append((i, mid))
-            sub_sequences.append((mid + 1, j))
+            if mid > i:
+                sub_sequences.append((i, mid))
+            if j > mid + 1:
+                sub_sequences.append((mid + 1, j))
 
 
 def partition(data, start, end):
