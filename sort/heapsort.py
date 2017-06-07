@@ -53,16 +53,18 @@ def height_of_heap(nodecount):
     return int(math.floor(math.log(nodecount + 1, 2)))
 
 
-if __name__ == '__main__':
-    data = [i for i in range(100)]
-    import random
+# ---------------- UT -------------
 
-    random.shuffle(data)
+import pytest
 
-    print "Original data:", data
-    print "Original data in heap style:"
-    print_heap(data)
+testdata = [
+    (1, 1),
+    (2, 2), (3, 2),
+    (4, 3), (5, 3), (6, 3), (7, 3)
 
-    print "Sorted heap:"
-    sort(data)
-    print_heap(data)
+]
+
+
+@pytest.mark.parametrize("nodecount, expected", testdata)
+def test_height_of_heap(nodecount, expected):
+    assert height_of_heap(nodecount) == expected
