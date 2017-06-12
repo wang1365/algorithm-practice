@@ -21,6 +21,7 @@ def power_of_e(x):
     # return 1 + x + x ** 2 / 2 + x ** 3 / (2 * 3) + x ** 4 / (2 * 3 * 4) + x ** 5 / (2 * 3 ** 4 * 5)
 
 
+# This function works if x is nearby 0 because we use sin(0) as the basic point
 def sin(x):
     def f(x, n):
         if n % 2 == 0:
@@ -46,4 +47,8 @@ if __name__ == '__main__':
     print 'sin(0):', math.sin(0), sin(0)
     print 'sin(0.5):', math.sin(0.5), sin(0.5)
     print 'sin(pi/2):', math.sin(math.pi/2), sin(math.pi/2)
+    print 'sin(2):', math.sin(2), sin(2)
+    print 'sin(3):', math.sin(3), sin(3)
     print 'sin(pi):', math.sin(math.pi), sin(math.pi)
+    print 'sin(4):', math.sin(4), sin(4)
+    print 'sin(5):', math.sin(5), sin(5)
