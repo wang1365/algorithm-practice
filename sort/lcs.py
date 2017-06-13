@@ -21,7 +21,7 @@ def get_lcs(X, Y):
     if not isinstance(X, (list, tuple, str)) or not isinstance(Y, (list, tuple, str)):
         raise TypeError("X and Y must be list, tuple or str")
 
-    m, n = len(X)+1, len(Y)+1
+    m, n = len(X) + 1, len(Y) + 1
     common_len = [[0 for j in range(n)] for i in range(m)]
     backtrace = [[0 for j in range(n)] for i in range(m)]
     pprint.pprint(common_len)
@@ -33,32 +33,35 @@ def get_lcs(X, Y):
             else:
                 if common_len[i + 1][j] >= common_len[i][j + 1]:
                     common_len[i + 1][j + 1] = common_len[i + 1][j]
-                    backtrace[i+1][j+1] = 1
+                    backtrace[i + 1][j + 1] = 1
                 else:
                     common_len[i + 1][j + 1] = common_len[i][j + 1]
-                    backtrace[i+1][j+1] = -1
+                    backtrace[i + 1][j + 1] = -1
                     # common_len[i+1][j+1] = max(common_len[i][j+1], common_len[i+1][j])
-    pprint.pprint(common_len)
-    pprint.pprint(backtrace)
+    # pprint.pprint(common_len)
+    # pprint.pprint(backtrace)
 
-    return common_len, backtrace
+    def get_backtrace(bt, m, n, X):
+        if m <= 0 or n <=0:
+            return None
+        stack = [(m, n)]
+        common_s = []
+        while stack:
+            x, y = stack.pop()
+            if bt[x][y] == 0:
+                common_s.append(X[x - 1])
+                if x > 1 and y > 1:
+                    stack.append((x - 1, y - 1))
+            elif bt[x][y] == -1 and x > 1 and y > 0:
+                stack.append((x - 1, y))
+            elif bt[x][y] == 1 and x > 0 and y > 1:
+                stack.append((x, y - 1))
+        return ''.join(common_s[::-1])
+
+    return common_len[m - 1][n - 1], get_backtrace(backtrace, m - 1, n - 1, X)
 
 
-def backtrace(bt, m, n, X):
-    if m == 0 or n == 0:
-        return
-
-    if bt[m][n] == 0:
-        print "*" + X[m-1],
-        backtrace(bt, m - 1, n - 1, X)
-    elif bt[m][n] == -1:
-        backtrace(bt, m - 1, n, X)
-    else:
-        backtrace(bt, m, n - 1, X)
-
-
-cl, bt = get_lcs("abcda", "aca")
-backtrace(bt, 5, 3, "abcda")
+print get_lcs("abcda", "aca")
 
 # ---------------------------- UT ------------------------------
 import unittest
@@ -67,14 +70,14 @@ import unittest
 class LCSTest(unittest.TestCase):
     def setUp(self):
         self._test_data = (
-            ("", "", 0),
-            ("a", "", 0),
-            ("", "b", 0),
-            ("abcde", "abcde", 5),
-            ("abcde", "ae", 2),
-            ("abcdefgh", "acfhgm", 4),
-            ("abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz", 26),
-            ("abcde", "abcde"[::-1], 1)
+            ("", "", 0, None),
+            ("a", "", 0, None),
+            ("", "b", 0, None),
+            ("abcde", "abcde", 5, "abcde"),
+            ("abcde", "ae", 2, "ae"),
+            ("abcdefgh", "acfgm", 4, "acfg"),
+            ("abcdefghijklmnopqrstuvwxyz", "abcdefghijklmnopqrstuvwxyz", 26, "abcdefghijklmnopqrstuvwxyz"),
+            ("abcde", "abcde"[::-1], 1, "e")
         )
 
     def test_get_lcs_with_recursive(self):
@@ -83,6 +86,12 @@ class LCSTest(unittest.TestCase):
 
         for i in self._test_data:
             self.assertEqual(i[2], get_lcs_with_recursive(i[0], i[1]))
+
+    def test_get_lcs(self):
+        for i in self._test_data:
+            lcs, s = get_lcs(i[0], i[1])
+            self.assertEqual(i[2], lcs)
+            self.assertEqual(i[3], s)
 
 
 if __name__ == "__main__":
