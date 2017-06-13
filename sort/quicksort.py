@@ -1,3 +1,7 @@
+# 快速排序
+
+
+# 递归方式
 def quick_sort(data, start, end):
     # print 'Use quick sort with recursion'
     if start >= end:
@@ -7,6 +11,7 @@ def quick_sort(data, start, end):
     quick_sort(data, mid + 1, end)
 
 
+# 非递归方式
 def quick_sort2(data, start, end):
     print 'Use quick sort without recursion'
     sub_sequences = [(start, end)]

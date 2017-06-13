@@ -1,7 +1,7 @@
 TAYLOR_N = 10
 
 
-# TAYLOR FORMULA
+# TAYLOR FORMULA 泰勒公式
 # f(x) = f(x0) +
 #       + 1/2! * f'(x0)   * (x-x0)
 #       + 1/2! * f''(x0)  * (x-x0)**2

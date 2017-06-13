@@ -1,6 +1,8 @@
 import pprint
 
+# 最长公共子序列 算法
 
+# 递归方式求解 最长公共子序列 的长度
 def get_lcs_with_recursive(X, Y):
     def lcs(X, xn, Y, yn):
         if xn <= 0 or yn <= 0:
@@ -16,7 +18,7 @@ def get_lcs_with_recursive(X, Y):
 
     return lcs(X, len(X), Y, len(Y))
 
-
+# 非递归求解 最长公共子序列 长度及序列内容
 def get_lcs(X, Y):
     if not isinstance(X, (list, tuple, str)) or not isinstance(Y, (list, tuple, str)):
         raise TypeError("X and Y must be list, tuple or str")
@@ -61,7 +63,6 @@ def get_lcs(X, Y):
     return common_len[m - 1][n - 1], get_backtrace(backtrace, m - 1, n - 1, X)
 
 
-print get_lcs("abcda", "aca")
 
 # ---------------------------- UT ------------------------------
 import unittest

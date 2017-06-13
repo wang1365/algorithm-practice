@@ -1,3 +1,6 @@
+# 最小栈，实现一个栈并提供额外的功能：获取最小值元素
+
+
 class MinStack(object):
     def __init__(self):
         self.stack = []
@@ -78,6 +81,7 @@ class MinStackTest(unittest.TestCase):
         stack.put(-2)
         stack.pop()
         self.assertEqual(stack.min(), -1)
+
 
 if __name__ == '__main__':
     unittest.main()
