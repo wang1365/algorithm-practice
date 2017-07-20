@@ -27,8 +27,8 @@ def test1():
 
     # Predict new sample
     Y_pre = rf.predict(X_test)
-    print('Y_test:', Y_test
-    print('Y_pre:', Y_pre
+    print('Y_test:', Y_test)
+    print('Y_pre:', Y_pre)
 
 
 def test2():
