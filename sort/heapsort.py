@@ -8,11 +8,9 @@ def sort(data):
     if not isinstance(data, list):
         raise TypeError("Only support list type")
 
-    print "Initial heap:"
-    init_heap()
+    print("Initial heap:" + init_heap())
 
-    print "Sorted heap:"
-    _sort_heap()
+    print("Sorted heap:" +  _sort_heap())
 
 
 def init_heap(data):
@@ -45,10 +43,10 @@ def adjust_node(data, index, end):
 
 def print_heap(data):
     for index, item in enumerate(data):
-        print item,
+        print(item)
         if index + 1 == 2 ** height_of_heap(nodecount=index + 1) - 1:
-            print os.linesep
-    print os.linesep
+            print(os.linesep)
+    print(os.linesep)
 
 
 def height_of_heap(nodecount):

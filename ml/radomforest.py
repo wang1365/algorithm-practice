@@ -6,7 +6,7 @@ from sklearn.datasets import load_iris
 import numpy as np
 
 iris = load_iris()
-print type(iris), len(iris.data)
+print(type(iris), len(iris.data))
 
 
 def test1():
@@ -18,8 +18,8 @@ def test1():
     X_test.shape, Y_test.shape = -1, -1
     X = [list(i) for i in X]
     X_test = [list(i) for i in X_test]
-    print 'X:', X
-    print 'Y:', Y
+    print('X:', X)
+    print('Y:', Y)
 
     # Train model
     rf = RandomForestRegressor()
@@ -27,8 +27,8 @@ def test1():
 
     # Predict new sample
     Y_pre = rf.predict(X_test)
-    print 'Y_test:', Y_test
-    print 'Y_pre:', Y_pre
+    print('Y_test:', Y_test
+    print('Y_pre:', Y_pre
 
 
 def test2():
@@ -42,7 +42,7 @@ def test2():
                                 scoring='r2',
                                 cv=ShuffleSplit(len(X), 3, .3))
         scores.append((round(np.mean(score), 3), names[i]))
-    print sorted(scores, reverse=True)
+    print(sorted(scores, reverse=True))
 
 
 if __name__ == '__main__':

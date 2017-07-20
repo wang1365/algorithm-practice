@@ -40,16 +40,16 @@ def sin(x):
 if __name__ == '__main__':
     import math
 
-    print math.e, power_of_e(1)
-    print math.e ** 2, power_of_e(2)
-    print math.e ** 3, power_of_e(3)
-    print math.e ** 1.89, power_of_e(1.89)
+    print(math.e, power_of_e(1))
+    print(math.e ** 2, power_of_e(2))
+    print(math.e ** 3, power_of_e(3))
+    print(math.e ** 1.89, power_of_e(1.89))
 
-    print 'sin(0):', math.sin(0), sin(0)
-    print 'sin(0.5):', math.sin(0.5), sin(0.5)
-    print 'sin(pi/2):', math.sin(math.pi/2), sin(math.pi/2)
-    print 'sin(2):', math.sin(2), sin(2)
-    print 'sin(3):', math.sin(3), sin(3)
-    print 'sin(pi):', math.sin(math.pi), sin(math.pi)
-    print 'sin(4):', math.sin(4), sin(4)
-    print 'sin(5):', math.sin(5), sin(5)
+    print('sin(0):', math.sin(0), sin(0))
+    print('sin(0.5):', math.sin(0.5), sin(0.5))
+    print('sin(pi/2):', math.sin(math.pi/2), sin(math.pi/2))
+    print('sin(2):', math.sin(2), sin(2))
+    print('sin(3):', math.sin(3), sin(3))
+    print('sin(pi):', math.sin(math.pi), sin(math.pi))
+    print('sin(4):', math.sin(4), sin(4))
+    print('sin(5):', math.sin(5), sin(5))

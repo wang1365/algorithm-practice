@@ -13,7 +13,7 @@ y = np.asmatrix(y).T
 
 # Normal Equation: (XT * X)**-1  * XT * y
 ne = (X.T.dot(X) ** -1) * X.T * y
-print ne
+print(ne)
 
-print fun(1, 2, 3)
-print 1*ne[0][0] + 2*ne[1][0] + 3*ne[2][0]
+print(fun(1, 2, 3))
+print(1 * ne[0][0] + 2 * ne[1][0] + 3 * ne[2][0])

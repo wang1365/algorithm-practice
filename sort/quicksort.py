@@ -3,7 +3,7 @@
 
 # 递归方式
 def quick_sort(data, start, end):
-    # print 'Use quick sort with recursion'
+    # print('Use quick sort with recursion'
     if start >= end:
         return
     mid = partition(data, start, end)
@@ -13,7 +13,7 @@ def quick_sort(data, start, end):
 
 # 非递归方式
 def quick_sort2(data, start, end):
-    print 'Use quick sort without recursion'
+    print('Use quick sort without recursion')
     sub_sequences = [(start, end)]
     while sub_sequences:
         i, j = sub_sequences.pop()
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     data = [i for i in range(100)]
     random.shuffle(data)
-    print 'src', data
+    print('src', data)
     # data = [1, 8, 5, 2, 3]
     quick_sort2(data, 0, len(data) - 1)
-    print 'after sort:', data
+    print('after sort:', data)

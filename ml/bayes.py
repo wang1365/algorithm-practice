@@ -10,5 +10,5 @@ clf = GaussianNB()
 clf.class_prior_ = [0.675, 0.325]
 clf.fit(X, y)
 
-print clf.predict([[-1, -1], [2,3]])
+print(clf.predict([[-1, -1], [2,3]]))
 
